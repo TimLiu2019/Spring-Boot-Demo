@@ -1,0 +1,24 @@
+person:
+  boss: true
+  birth: 2001/05/01
+  age: 19
+  interests: [basketball, football, volleyball]
+  animal:
+    - dog
+    - cat
+  score:
+    english: 90
+    math: 92
+  salary: [9999.99, 10000]
+
+  pet:
+    name: maomao
+    weight: 2.0
+  allPets:
+    sick:
+      - {name: dog1,weight: 12.0}
+      - {name: cat1, weight: 3.2}
+    health:
+      - {name: dog2,weight: 15.0}
+      - {name: cat2, weight: 5.2}
+  user-name: Tom
