@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.bean.Person;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,6 +43,11 @@ public class ParameterTestController {
         Map<String, Object> map = new HashMap<>();
         map.put("formBody", contentBody);
         return map;
+    }
+     @PostMapping("/saveUser")
+    public Person saveUser(Person person){
+
+        return person;
     }
 
 }
