@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import com.example.demo.converter.qtMessageConverter;
 import org.springframework.core.convert.converter.Converter;
 import com.example.demo.bean.Pet;
 import com.example.demo.bean.Person;
@@ -7,6 +8,7 @@ import org.apache.tomcat.util.http.parser.MediaType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
@@ -27,6 +29,10 @@ public class WebConfig {
     public WebMvcConfigurer webMvcConfigurer(){
         return new WebMvcConfigurer() {
 
+            @Override
+            public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+                 converters.add(new qtMessageConverter());
+            }
 
             @Override
             public void configurePathMatch(PathMatchConfigurer configurer) {
