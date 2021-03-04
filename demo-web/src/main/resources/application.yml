@@ -4,4 +4,7 @@ spring:
 
   resources:
     static-locations: [classpath:/qtstatic/]
+  mvc:
+      contentnegotiation:
+        favor-parameter: true  #Enable request parameter content negotiation mode
 
