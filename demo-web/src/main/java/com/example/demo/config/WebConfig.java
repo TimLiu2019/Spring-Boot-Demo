@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.util.StringUtils;
+import org.springframework.web.accept.HeaderContentNegotiationStrategy;
 import org.springframework.web.accept.ParameterContentNegotiationStrategy;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
@@ -41,7 +42,8 @@ public class WebConfig {
                 mediaTypes.put("xml", MediaType.APPLICATION_XML);
                 mediaTypes.put("qt",MediaType.parseMediaType("application/x-qt"));
                 ParameterContentNegotiationStrategy parameterStrategy =  new ParameterContentNegotiationStrategy(mediaTypes);
-                configurer.strategies(Arrays.asList(parameterStrategy));
+                HeaderContentNegotiationStrategy headerStrategy = new HeaderContentNegotiationStrategy();
+                configurer.strategies(Arrays.asList(parameterStrategy,headerStrategy));
             }
 
             @Override
