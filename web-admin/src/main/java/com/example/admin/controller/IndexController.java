@@ -18,7 +18,7 @@ public class IndexController {
     }
     @PostMapping("/login")
     public String main(User user, HttpSession session, Model model){
-        if(StringUtils.hasLength(user.getUsername()) &&  "123456".equals(user.getPassword())){
+        if(StringUtils.hasLength(user.getUserName()) &&  "123456".equals(user.getPassword())){
             session.setAttribute("loginUser", user);
             return "redirect:/main.html";
         } else {
